@@ -2,4 +2,100 @@
 title: 直接调用
 ---
 
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
 直接调用是调用 NTSilk 最简单的方法。
+
+NTSilk Userland 提供了 NTSilk 的预编译版本，这是一个包含了 NTSilk、wav、MP3 等众多编码器的 FFmpeg CLI。可以通过 CLI 直接完成 SILK 与其他格式的相互转换。
+
+## 安装
+
+可以从本站直接下载 NTSilk Userland 提供的 NTSilk：
+
+- **Windows x64**： https://ntsilk.ilharper.com/ntsilk-win32-x64.exe
+- **Linux x64**： https://ntsilk.ilharper.com/ntsilk-linux-x64
+
+若希望从 GitHub 上下载，或需要 NTSilk 的历史版本，可以前往 [NTSilk Binaries](https://github.com/ntsilk-userland/binaries)。
+
+## CLI
+
+可以在终端中直接使用上面下载的 CLI。
+
+将 MP3 转换为 SILK：
+
+<Tabs groupId="shell">
+<TabItem value="cmd" label="CMD" default>
+
+```bat
+ntsilk -i my.mp3 my.ntsilk
+```
+
+</TabItem>
+<TabItem value="sh" label="类 Bash">
+
+```sh
+./ntsilk -i my.mp3 my.ntsilk
+```
+
+</TabItem>
+<TabItem value="pwsh" label="PowerShell">
+
+```ps1
+.\ntsilk -i my.mp3 my.ntsilk
+```
+
+</TabItem>
+</Tabs>
+
+将 SILK 转换为 MP3：
+
+<Tabs groupId="shell">
+<TabItem value="cmd" label="CMD" default>
+
+```bat
+ntsilk -i my.ntsilk my.mp3
+```
+
+</TabItem>
+<TabItem value="sh" label="类 Bash">
+
+```sh
+./ntsilk -i my.ntsilk my.mp3
+```
+
+</TabItem>
+<TabItem value="pwsh" label="PowerShell">
+
+```ps1
+.\ntsilk -i my.ntsilk my.mp3
+```
+
+</TabItem>
+</Tabs>
+
+## Python
+
+例如，将 `my.mp3` 转码为 `my.ntsilk`：
+
+```py
+import subprocess
+
+subprocess.run(["D:/ntsilk.exe", "-i", "my.mp3", "my.ntsilk"])
+```
+
+[`subprocess` 模块](https://docs.python.org/zh-cn/3/library/subprocess.html)
+的文档提供了详细的用法说明。
+
+## Node.js
+
+例如，将 `my.mp3` 转码为 `my.ntsilk`：
+
+```ts
+const { execFileSync } = require('node:child_process')
+
+execFileSync('D:/ntsilk.exe', ['-i', 'my.mp3', 'my.ntsilk'])
+```
+
+[`child_process` 模块](https://nodejs.org/docs/latest/api/child_process.html)
+的文档提供了详细的用法说明。
