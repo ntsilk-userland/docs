@@ -11,7 +11,7 @@ const tagline = '优雅地使用 SILK'
 //   href: '/',
 // }
 
-const presetConfig: Options = {
+const presetConfig = {
   docs: {
     routeBasePath: '/',
     sidebarPath: join(__dirname, 'sidebars.ts'),
@@ -26,9 +26,9 @@ const presetConfig: Options = {
   theme: {
     customCss: join(__dirname, 'src/css/custom.scss'),
   },
-}
+} satisfies Options
 
-const themeConfig: ThemeConfig = {
+const themeConfig = {
   colorMode: {
     defaultMode: 'light',
     respectPrefersColorScheme: true,
@@ -71,17 +71,12 @@ const themeConfig: ThemeConfig = {
 
     links: [
       {
-        title: '集成',
+        title: '使用',
         items: [
           {
-            label: 'Chronocat',
-            to: '/guide/integrations/chronocat',
+            label: '集成',
+            to: '/guide/integrations',
           },
-        ],
-      },
-      {
-        title: '调用',
-        items: [
           {
             label: '直接调用',
             to: '/guide/direct',
@@ -95,10 +90,10 @@ const themeConfig: ThemeConfig = {
       {
         title: '更多',
         items: [
-          {
-            label: 'FAQ',
-            to: '/faq/1',
-          },
+          // {
+          //   label: 'FAQ',
+          //   to: '/faq/1',
+          // },
           {
             label: '社区',
             to: '/more/community',
@@ -125,9 +120,9 @@ const themeConfig: ThemeConfig = {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     darkTheme: require('prism-react-renderer/themes/palenight'),
   },
-}
+} satisfies ThemeConfig
 
-export const config: Config = {
+export const config = {
   title,
   tagline,
 
@@ -171,4 +166,4 @@ export const config: Config = {
       headingIds: false,
     },
   },
-}
+} satisfies Config
