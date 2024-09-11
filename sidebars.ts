@@ -3,7 +3,15 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs'
 const sidebars: SidebarsConfig = {
   guide: [
     'guide/index',
-    'guide/integrations/index',
+    {
+      type: 'category',
+      label: '集成',
+      link: {
+        type: 'doc',
+        id: 'guide/integrations/index',
+      },
+      items: ['guide/integrations/koishi'],
+    },
     'guide/direct',
     'guide/bindings',
     'guide/community',
